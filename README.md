@@ -1,1 +1,1 @@
-# my-arch-configs
+# My arch dotfiles
