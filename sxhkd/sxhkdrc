@@ -1,0 +1,77 @@
+# Terminal
+super + Return
+    kitty
+
+# Menu
+super + d
+    rofi -show drun
+
+# Close window
+super + q
+    bspc node -c
+
+# Switch to workspace 1-9
+super + {1-9}
+    bspc desktop -f ^{1-9}
+    
+# Move focused window to workspace 1-9
+super + shift + {1-9}
+    bspc node -d ^{1-9}
+
+# Focus windows
+super + {h,j,k,l}
+    bspc node -f {west,south,north,east}
+
+# Swap windows
+super + shift + {h,j,k,l}
+    bspc node -s {west,south,north,east}
+
+# Fullscreen mode
+super + f
+    bspc node -t fullscreen
+
+# Screenshot
+Print
+    flameshot gui
+
+# Exit from bspwm
+super + shift + e
+    pkill -KILL -u $USER
+
+# Volume +2%
+XF86AudioRaiseVolume
+    pactl set-sink-volume @DEFAULT_SINK@ +2%
+
+# Volume -2%
+XF86AudioLowerVolume
+    pactl set-sink-volume @DEFAULT_SINK@ -2%
+
+# Mute
+XF86AudioMute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Microphone mute
+XF86AudioMicMute
+    pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# Brightness +10%
+XF86MonBrightnessUp
+    brightnessctl s +10%
+super + F6
+    brightnessctl s +10%
+
+# Brightness -10%
+XF86MonBrightnessDown
+    brightnessctl s 10%-
+super + F5
+    brightnessctl s 10%-
+
+# Toggle window state between tiled and floating
+# Super + t -> tiled
+# Super + s -> floating
+super + {t,s}
+	bspc node -t {tiled,floating}
+
+# Make sxhkd reload its configuration files
+super + Escape
+	pkill -USR1 -x sxhkd
